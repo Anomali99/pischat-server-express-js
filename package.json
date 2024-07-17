@@ -1,0 +1,26 @@
+{
+  "name": "pischat",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon ./src/index.js",
+    "deploy": "pm2 start app.js --name pisces-app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@sequelize/mariadb": "^7.0.0-alpha.41",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mariadb": "^3.3.1",
+    "nodemon": "^3.1.4",
+    "socket.io": "^4.7.5",
+    "uuid": "^10.0.0"
+  }
+}
