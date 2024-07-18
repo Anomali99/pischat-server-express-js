@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon ./src/index.js",
-    "deploy": "pm2 start app.js --name pisces-app"
+    "deploy": "pm2 start ./src/index.js --name pisces-app"
   },
   "keywords": [],
   "author": "",
