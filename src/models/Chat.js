@@ -1,4 +1,4 @@
-const { Sequelize, DataTypes, Model } = require("@sequelize/core");
+const { Model, DataTypes } = require("@sequelize/core");
 const sequelize = require("../config/database");
 const User = require("./User");
 
@@ -39,6 +39,15 @@ Chat.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    message: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    read: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
     datetime: {
       type: DataTypes.DATE,
       allowNull: false,
@@ -52,9 +61,8 @@ Chat.init(
   }
 );
 
-User.hasMany(Chat, { foreignKey: "user_from_id", as: "sentChats" });
-User.hasMany(Chat, { foreignKey: "user_to_id", as: "receivedChats" });
-Chat.belongsTo(User, { foreignKey: "user_from_id", as: "userFrom" });
-Chat.belongsTo(User, { foreignKey: "user_to_id", as: "userTo" });
+// Define associations
+Chat.belongsTo(User, { as: "sender", foreignKey: "user_from_id" });
+Chat.belongsTo(User, { as: "receiver", foreignKey: "user_to_id" });
 
 module.exports = Chat;

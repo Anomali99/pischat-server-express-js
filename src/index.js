@@ -13,7 +13,8 @@ app.get("/", async (req, res) => {
   res.send("Hello, World!");
 });
 
-app.use("/user", require("./routes/auth"));
+app.use("/auth", require("./routes/auth"));
+app.use("/user", require("./routes/users"));
 
 const configureSocket = require("./routes/socket");
 const server = configureSocket(app);

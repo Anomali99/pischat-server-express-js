@@ -19,6 +19,8 @@ create table if not exists `chats`(
   `user_from_uuid` text not null,
   `user_to_id` int not null,
   `user_to_uuid` text not null,
+  `message` text not null,
+  `read` boolean not null default false,
   `datetime` datetime not null, 
   primary key(`chat_id`),
   constraint `fk_user_from_id` foreign key (`user_from_id`) references `users`(user_id),
